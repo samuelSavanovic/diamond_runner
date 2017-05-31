@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Diamond runner</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style type="text/css">
+	body {
+
+		 background: url(res/png/elements/background.png) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+	}
+	div {
+	    position: absolute;
+	    top: 30%;
+	    left: 50%;
+	    transform: translateX(-50%) translateY(-50%);
+	    text-align: center;
+
+
+	}
+	h1 { color: #7c795d; font-family: 'Trocchi', serif; font-size: 45px; font-weight: normal; line-height: 48px; margin: 0; }
+	p { color: #4c4a37; font-family: 'Source Sans Pro', sans-serif; font-size: 18px; line-height: 32px; margin: 0 0 24px; }
+	h3 { font-size: 26px; font-weight: 300; color: #777777; margin: 0 0 24px; }
+	button {
+		  color: #7c795d;
+  		background: rgba(0,0,0,0);
+  		border: solid 2px #7c795d;
+	}
+	</style>
+	<script type="text/javascript">
+		function run_easy() {
+
+			 sessionStorage.setItem("difficulty", 1.25); 
+			 window.open("game.html", "_self");
+		}
+		function run_normal() {
+			 
+			 sessionStorage.setItem("difficulty", 1); 
+			 window.open("game.html", "_self");
+		}
+		function run_hard() {
+			 sessionStorage.setItem("difficulty", 0.75); 
+			 window.open("game.html", "_self");
+		}
+		function set_score() {
+			document.getElementById("score").innerHTML  = "Score: "  + sessionStorage.getItem("score");
+		}
+	</script>
+</head>
+<body onload="set_score()">
+<audio src="res/music/sawsquarenoise_-_01_-_Interstellar.mp3" autoplay loop hidden=true></audio>
+<div>
+<h1 > Game Over</h1>
+<h3>
+<br>
+All good things come to an end. Please try again. <br>
+	<span id="score"></span><br>
+	
+</h3>
+<button onclick="run_easy()">EASY</button>
+<button onclick="run_normal()">NORMAL</button>
+<button onclick="run_hard()">HARD</button>
+</div>
+</body>
+</html>
